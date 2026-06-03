@@ -1,0 +1,1206 @@
+export default function Navbar() {
+    return (
+        <nav className="bg-white shadow-md h-16 px-8 flex items-center justify-between">
+
+            <div className="text-2xl font-bold text-blue-600">
+                AdminPanel
+            </div>
+
+            <ul className="flex gap-8 text-gray-700">
+                <li className="hover:text-blue-500 cursor-pointer">
+                    Dashboard
+                </li>
+
+                <li className="hover:text-blue-500 cursor-pointer">
+                    Employees
+                </li>
+
+                <li className="hover:text-blue-500 cursor-pointer">
+                    Reports
+                </li>
+
+                <li className="hover:text-blue-500 cursor-pointer">
+                    Settings
+                </li>
+            </ul>
+
+            <button className="bg-blue-600 text-white px-5 py-2 rounded-lg">
+                Logout
+            </button>
+
+        </nav>
+    )
+
+export default function Sidebar() {
+    return (
+        <div className="w-64 min-h-screen bg-slate-900 text-white p-6">
+
+            <h1 className="text-2xl font-bold mb-10">
+                Dashboard
+            </h1>
+
+            <div className="space-y-4">
+
+                <button className="w-full text-left p-3 rounded hover:bg-slate-700">
+                    Home
+                </button>
+
+                <button className="w-full text-left p-3 rounded hover:bg-slate-700">
+                    Products
+                </button>
+
+                <button className="w-full text-left p-3 rounded hover:bg-slate-700">
+                    Orders
+                </button>
+
+                <button className="w-full text-left p-3 rounded hover:bg-slate-700">
+                    Reports
+                </button>
+
+            </div>
+
+        </div>
+    )
+export default function EmployeeTable() {
+    return (
+
+        <div className="bg-white rounded-xl shadow-lg p-6">
+
+            <h2 className="text-xl font-semibold mb-5">
+                Employees
+            </h2>
+
+            <div className="overflow-x-auto">
+
+                <table className="w-full">
+
+                    <thead className="bg-gray-100">
+
+                        <tr>
+                            <th className="p-4">ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr className="border-b">
+
+                            <td className="p-4">EMP01</td>
+                            <td>John Doe</td>
+                            <td>IT</td>
+
+                            <td>
+                                <span className="bg-green-100 text-green-600 px-3 py-1 rounded">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td className="space-x-2">
+
+                                <button className="bg-blue-500 text-white px-4 py-2 rounded">
+                                    Edit
+                                </button>
+
+                                <button className="bg-red-500 text-white px-4 py-2 rounded">
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    )
+}
+export default function EmployeeForm() {
+
+    return (
+
+        <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow">
+
+            <h1 className="text-2xl font-bold mb-8">
+                Add Employee
+            </h1>
+
+            <div className="grid grid-cols-2 gap-6">
+
+                <input
+                placeholder="First Name"
+                className="border p-3 rounded-lg outline-none focus:border-blue-500"
+                />
+
+                <input
+                placeholder="Last Name"
+                className="border p-3 rounded-lg"
+                />
+
+                <input
+                placeholder="Email"
+                className="border p-3 rounded-lg"
+                />
+
+                <select className="border p-3 rounded-lg">
+
+                    <option>
+                        Department
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button className="mt-8 bg-blue-600 text-white px-8 py-3 rounded-lg">
+                Save
+            </button>
+
+        </div>
+
+    )
+export default function DashboardCards(){
+
+return(
+
+<div className="grid grid-cols-4 gap-5">
+
+<div className="bg-white p-6 rounded-xl shadow">
+
+<h2 className="text-gray-500">
+Total Sales
+</h2>
+
+<h1 className="text-3xl font-bold mt-4">
+500
+</h1>
+
+</div>
+
+<div className="bg-white p-6 rounded-xl shadow">
+
+<h2>
+Orders
+</h2>
+
+<h1 className="text-3xl font-bold">
+120
+</h1>
+
+</div>
+
+</div>
+
+)
+
+}
+
+}
+}
+
+}
+
+
+export default function SearchBar(){
+
+return(
+
+<div className="flex gap-4">
+
+<input
+placeholder="Search..."
+className="border p-3 rounded-lg flex-1"
+/>
+
+<select className="border p-3 rounded-lg">
+
+<option>
+All
+</option>
+
+</select>
+
+<button className="bg-blue-600 text-white px-6 rounded-lg">
+Search
+</button>
+
+</div>
+
+)
+
+}
+export default function Modal(){
+
+return(
+
+<div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+
+<div className="bg-white p-8 rounded-xl w-96">
+
+<h1 className="text-xl font-bold">
+Delete Item
+</h1>
+
+<p className="mt-4">
+Are you sure?
+</p>
+
+<div className="flex gap-3 mt-6">
+
+<button className="bg-gray-300 px-5 py-2 rounded">
+Cancel
+</button>
+
+<button className="bg-red-500 text-white px-5 py-2 rounded">
+Delete
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+)
+
+}
+
+
+
+const express = require("express");
+const session = require("express-session");
+const cors = require("cors");
+require("dotenv").config();
+
+const app = express();
+
+const authRoutes = require("./routes/AuthRoutes");
+const bookingRoutes= require("./routes/BookingRoutes")
+const busesRoutes= require("./routes/BusesRoutes")
+const scheduleRoutes= require("./routes/ScheduleRoutes")
+require("./config/db");
+
+const port = process.env.PORT || 3001;
+
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
+
+app.use(express.json());
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || "fallback_secret",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    httpOnly: true,
+    sameSite: "lax",
+    maxAge: 24 * 60 * 60 * 1000
+  }
+}));
+
+app.use("/auth", authRoutes);
+app.use("/booking",bookingRoutes)
+app.use("/buses",busesRoutes)
+app.use("/schedules",scheduleRoutes)
+
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
+
+
+const bcrypt = require("bcrypt");
+const connectDB = require("../config/db");
+
+
+exports.register = async (req, res) => {
+    try {
+        const { username, password, userRole } = req.body;
+
+        if (!username)
+            return res.status(400).json({ message: "username is required" });
+
+        if (!password)
+            return res.status(400).json({ message: "password is required" });
+
+        
+        const checkQuery = "SELECT * FROM users WHERE username = ?";
+
+        connectDB.query(checkQuery, [username], async (err, results) => {
+            if (err) {
+                return res.status(500).json({
+                    message: "Database Error",
+                    error: err.message
+                });
+            }
+
+            if (results.length > 0) {
+                return res.status(400).json({
+                    message: "Username already exists"
+                });
+            }
+
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            const insertQuery =
+                "INSERT INTO users (username,password,userRole) VALUES (?,?,?)";
+
+            connectDB.query(
+                insertQuery,
+                [
+                    username,
+                    hashedPassword,
+                    userRole || null 
+                ],
+                (err, result) => {
+                    if (err) {
+                        return res.status(500).json({
+                            message: "Insert Error",
+                            error: err.message
+                        });
+                    }
+
+                    res.status(201).json({
+                        success: true,
+                        message: "User registered successfully",
+                        user: {
+                            userId: result.insertId,
+                            username,
+                            userRole: userRole || null
+                        }
+                    });
+                }
+            );
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            message: "Server Error",
+            error: error.message
+        });
+    }
+};
+exports.getUsers=async(req,res)=>{
+    try{
+        const query="SELECT * FROM users"
+        connectDB.query(query,(err,results)=>{
+            if(err)return res.status(500).json({message:`Internal Server ${err}`})
+            return res.status(200).json({results})
+        })
+    }catch(err){
+        return res.status(500).json({message:`Internal Server ${err}`})
+    }
+}
+
+exports.login = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        if (!username)
+            return res.status(400).json({
+                message: "username is required"
+            });
+
+        if (!password)
+            return res.status(400).json({
+                message: "password is required"
+            });
+
+        const query = "SELECT * FROM users WHERE username=?";
+
+        connectDB.query(query, [username], async (err, results) => {
+
+            if (err) {
+                return res.status(500).json({
+                    message: "Database Error",
+                    error: err.message
+                });
+            }
+
+            if (results.length === 0) {
+                return res.status(400).json({
+                    message: "User not found"
+                });
+            }
+
+            const user = results[0];
+           
+            const isMatch = await bcrypt.compare(
+                password,
+                user.password
+            );
+
+            if (!isMatch) {
+                return res.status(400).json({
+                    message: "Invalid password"
+                });
+            }
+
+            req.session.user = {
+                userId: user.userId,
+                username: user.username,
+                role: user.userRole
+            };
+
+            res.status(200).json({
+                success: true,
+                message: "Login successful",
+                user: req.session.user,
+                role:user.userRole
+                
+            });
+
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            message: "Server Error",
+            error: error.message
+        });
+    }
+};
+
+exports.logout = (req, res) => {
+
+    req.session.destroy((err) => {
+
+        if (err) {
+            return res.status(500).json({
+                message: "Logout failed"
+            });
+        }
+
+        res.clearCookie("connect.sid");
+
+        res.status(200).json({
+            success: true,
+            message: "Logged out successfully"
+        });
+
+    });
+
+};
+
+
+exports.checkAuth = (req, res) => {
+
+    if (!req.session.user) {
+        return res.status(401).json({
+            authenticated: false,
+            message: "Not authenticated"
+        });
+    }
+
+    res.status(200).json({
+        authenticated: true,
+        user: req.session.user,
+        role:req.session.user.userRole
+    });
+
+};
+const connectDB = require("../config/db");
+
+exports.CreateSchedule = async (req,res)=>{
+    try{
+
+        const {
+            busId,
+            routeName,
+            departurePoint,
+            destination,
+            departureTime,
+            estimatedArrivalTime,
+            ticketPrice,
+            scheduleStatus
+        } = req.body;
+
+        if(
+            !busId ||
+            !routeName ||
+            !departurePoint ||
+            !destination ||
+            !departureTime ||
+            !estimatedArrivalTime ||
+            !ticketPrice ||
+            !scheduleStatus
+        ){
+            return res.status(400).json({
+                message:"Missing Fields"
+            });
+        }
+
+        const CheckBusQuery=
+        "SELECT * FROM buses WHERE busId=?";
+
+        connectDB.query(
+            CheckBusQuery,
+            [busId],
+            (err,busResults)=>{
+
+                if(err){
+                    return res.status(500).json({
+                        message:`Internal Server Error ${err}`
+                    });
+                }
+
+                if(busResults.length===0){
+                    return res.status(404).json({
+                        message:"Bus Not Found"
+                    });
+                }
+
+                const DeleteOldScheduleQuery=
+                "DELETE FROM schedules WHERE busId=?";
+
+                connectDB.query(
+                    DeleteOldScheduleQuery,
+                    [busId],
+                    (err)=>{
+
+                        if(err){
+                            return res.status(500).json({
+                                message:
+                                `Internal Server Error ${err}`
+                            });
+                        }
+
+                        const CreateScheduleQuery=`
+                        INSERT INTO schedules(
+                            busId,
+                            routeName,
+                            departurePoint,
+                            destination,
+                            departureTime,
+                            estimatedArrivalTime,
+                            ticketPrice,
+                            scheduleStatus
+                        )
+                        VALUES(?,?,?,?,?,?,?,?)
+                        `;
+
+                        connectDB.query(
+                            CreateScheduleQuery,
+                            [
+                                busId,
+                                routeName,
+                                departurePoint,
+                                destination,
+                                departureTime,
+                                estimatedArrivalTime,
+                                ticketPrice,
+                                scheduleStatus
+                            ],
+                            (err,result)=>{
+
+                                if(err){
+                                    return res.status(500).json({
+                                        message:
+                                        `Internal Server Error ${err}`
+                                    });
+                                }
+
+                                return res.status(201).json({
+                                    message:
+                                    "Schedule Created Successfully",
+                                    result
+                                });
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    }catch(err){
+
+        return res.status(500).json({
+            message:
+            `Internal Server Error ${
+                err.message || err
+            }`
+        });
+
+    }
+};
+
+exports.DeleteSchedule = async(req,res)=>{
+    try{
+
+        const {id}=req.params;
+
+        const DeleteQuery=`
+        DELETE FROM schedules
+        WHERE schedule_id=?
+        `;
+
+        connectDB.query(
+            DeleteQuery,
+            [id],
+            (err,result)=>{
+
+                if(err){
+                    return res.status(500).json({
+                        message:
+                        `Internal Server Error ${
+                            err.message || err
+                        }`
+                    });
+                }
+
+                if(result.affectedRows===0){
+
+                    return res.status(404).json({
+                        message:
+                        "Schedule Not Found"
+                    });
+
+                }
+
+                return res.status(200).json({
+                    message:
+                    "Schedule Deleted"
+                });
+
+            }
+        );
+
+    }catch(err){
+
+        return res.status(500).json({
+            message:
+            `Internal Server Error ${
+                err.message || err
+            }`
+        });
+
+    }
+};
+
+exports.UpdateSchedule = async(req,res)=>{
+    try{
+
+        const {id}=req.params;
+
+        const {
+            busId,
+            routeName,
+            departurePoint,
+            destination,
+            departureTime,
+            estimatedArrivalTime,
+            ticketPrice,
+            scheduleStatus
+        } = req.body;
+
+        if(
+            !busId ||
+            !routeName ||
+            !departurePoint ||
+            !destination ||
+            !departureTime ||
+            !estimatedArrivalTime ||
+            !ticketPrice ||
+            !scheduleStatus
+        ){
+            return res.status(400).json({
+                message:"Missing Fields"
+            });
+        }
+
+        const UpdateQuery=`
+        UPDATE schedules
+        SET
+            busId=?,
+            routeName=?,
+            departurePoint=?,
+            destination=?,
+            departureTime=?,
+            estimatedArrivalTime=?,
+            ticketPrice=?,
+            scheduleStatus=?
+        WHERE schedule_id=?
+        `;
+
+        connectDB.query(
+            UpdateQuery,
+            [
+                busId,
+                routeName,
+                departurePoint,
+                destination,
+                departureTime,
+                estimatedArrivalTime,
+                ticketPrice,
+                scheduleStatus,
+                id
+            ],
+            (err,result)=>{
+
+                if(err){
+                    return res.status(500).json({
+                        message:
+                        `Internal Server Error ${
+                            err.message || err
+                        }`
+                    });
+                }
+
+                if(result.affectedRows===0){
+                    return res.status(404).json({
+                        message:
+                        "Schedule Not Found"
+                    });
+                }
+
+                return res.status(200).json({
+                    message:
+                    "Schedule Updated"
+                });
+
+            }
+        );
+
+    }catch(err){
+
+        return res.status(500).json({
+            message:
+            `Internal Server Error ${
+                err.message || err
+            }`
+        });
+
+    }
+};
+
+exports.GetSchedules = async(req,res)=>{
+    try{
+
+        const GetQuery=`
+        SELECT
+            s.schedule_id,
+            s.busId,
+            b.plate_number,
+            s.routeName,
+            s.departurePoint,
+            s.destination,
+            s.departureTime,
+            s.estimatedArrivalTime,
+            s.ticketPrice,
+            s.scheduleStatus
+        FROM schedules s
+        JOIN buses b
+        ON s.busId=b.busId
+        `;
+
+        connectDB.query(
+            GetQuery,
+            (err,results)=>{
+
+                if(err){
+                    return res.status(500).json({
+                        message:
+                        `Internal Server Error ${
+                            err.message || err
+                        }`
+                    });
+                }
+
+                return res.status(200).json({
+                    message:
+                    "Schedules Retrieved",
+                    results
+                });
+
+            }
+        );
+
+    }catch(err){
+
+        return res.status(500).json({
+            message:
+            `Internal Server Error ${
+                err.message || err
+            }`
+        });
+
+    }
+};
+
+exports.GetScheduleByRoute = async(req,res)=>{
+    try{
+
+        const {routeName}=req.body;
+
+        if(!routeName){
+            return res.status(400).json({
+                message:"Missing Field"
+            });
+        }
+
+        const GetQuery=
+        "SELECT * FROM schedules WHERE routeName=?";
+
+        connectDB.query(
+            GetQuery,
+            [routeName],
+            (err,results)=>{
+
+                if(err){
+                    return res.status(500).json({
+                        message:
+                        `Internal Server Error ${
+                            err.message || err
+                        }`
+                    });
+                }
+
+                return res.status(200).json({
+                    message:
+                    "Schedules Retrieved",
+                    results
+                });
+
+            }
+        );
+
+    }catch(err){
+
+        return res.status(500).json({
+            message:
+            `Internal Server Error ${
+                err.message || err
+            }`
+        });
+
+    }
+};
+
+exports.GetScheduleByDepartureTime = async(req,res)=>{
+    try{
+
+        const {departureTime}=req.body;
+
+        if(!departureTime){
+            return res.status(400).json({
+                message:"Missing Field"
+            });
+        }
+
+        const GetQuery=
+        "SELECT * FROM schedules WHERE departureTime=?";
+
+        connectDB.query(
+            GetQuery,
+            [departureTime],
+            (err,results)=>{
+
+                if(err){
+                    return res.status(500).json({
+                        message:
+                        `Internal Server Error ${
+                            err.message || err
+                        }`
+                    });
+                }
+
+                return res.status(200).json({
+                    message:
+                    "Schedules Retrieved",
+                    results
+                });
+
+            }
+        );
+
+    }catch(err){
+
+        return res.status(500).json({
+            message:
+            `Internal Server Error ${
+                err.message || err
+            }`
+        });
+
+    }
+};
+
+
+
+import axios from "axios"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+export default function Login() {
+    const navigate= useNavigate();
+    const [formData, setFormData] = useState({
+        username: "",
+        password: ""
+    })
+    const [error, setError] = useState("")
+    const handleChange = async (e) => {
+        const { name, value } = e.target
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        try {
+            const res = await axios.post('http://localhost:3001/auth/login', formData, {
+                withCredentials: true
+            })
+            console.log(res.data)
+            if(res.data.role==="admin"){
+                navigate('/AD')
+            }else if(res.data.role==="customer"||res.data.role===null){
+                navigate('/CD')
+            }
+        } catch (err) {
+            
+            setError(
+                err.response?.data?.message ||
+                err.message
+            )
+        }
+    }
+    return (
+
+        <div className=" mt-40 max-w-xl mx-auto bg-gray-100 p-8 rounded-xl shadow">
+            <form action="" onSubmit={handleLogin}>
+                <h1 className="text-2xl font-bold mb-8">
+                    Login
+                </h1>
+
+                <div className="flex flex-col gap-6">
+
+                    <input
+                        type="text"
+                        name="username"
+                        onChange={handleChange}
+                        value={formData.username}
+                        placeholder="Username"
+                        className="border p-3 rounded-lg outline-none focus:border-blue-500"
+                    />
+
+                    <input
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        type="password"
+                        placeholder="Password"
+                        className="border p-3 rounded-lg"
+                    />
+
+
+
+                </div>
+
+                <input type="submit" className=" text-center mt-8 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors ease-in-out" value="Login" />
+
+               
+            </form>
+            Don't Have An Account? <button onClick={()=>{navigate('/register')}} className="bg-blue-50 border rounded px-3">Register</button>
+            <p className="text-red-500">{error}</p>
+
+        </div>
+
+    )
+
+}
+import Booking from "../components/Booking"
+import Bus from "../components/Bus"
+
+import Schedule from "../components/Schedule"
+import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+export function AdminDashboard(){
+   const navigate = useNavigate()
+    const [SwitchPage,SetSwitchPage]=useState("Bus")
+    const handleLogout=()=>{
+        
+        navigate('/')
+    }
+
+const renderPage=()=>{
+    switch(SwitchPage){
+        case "Bus":
+            return <Bus/>
+        case "Schedule":
+            return <Schedule/>
+        case "Booking":
+            return<Booking/>
+
+    } 
+}
+    
+    return (
+            <div className="flex flex-col">
+            <div className="bg-white shadow-md border-b w-full h-16 flex items-center justify-between px-6">
+
+    
+    <div className="flex gap-4 items-center">
+        <h1 className="mr-10">Administrator Dashboard</h1>
+        <button
+            className="px-4 py-2 rounded-md bg-gray-900 text-white hover:bg-gray-700 transition"
+            onClick={() => SetSwitchPage("Bus")}
+        >
+            Buses
+        </button>
+
+        <button
+            className="px-4 py-2 rounded-md bg-gray-900 text-white hover:bg-gray-700 transition"
+            onClick={() => SetSwitchPage("Schedule")}
+        >
+            Schedules
+        </button>
+
+        <button
+            className="px-4 py-2 rounded-md bg-gray-900 text-white hover:bg-gray-700 transition"
+            onClick={() => SetSwitchPage("Booking")}
+        >
+            Bookings
+        </button>
+
+    </div>
+
+    
+    <button
+        className="px-4 py-2 rounded-md bg-red-500 text-white hover:bg-red-600 transition"
+        onClick={handleLogout}
+    >
+        Logout
+    </button>
+
+</div>
+            <div>
+                {renderPage()}
+            </div>
+            
+            </div>
+            
+        )
+    }
+
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+
+export const generateReport = () => {
+    
+    // =========================
+    // Variables / Backend Data
+    // =========================
+
+    const reportTitle = "Bus Booking Report";
+    const generatedBy = "Admin";
+    const generatedDate = new Date().toLocaleDateString();
+
+    const totalBookings = 150;
+    const totalRevenue = 750000;
+
+    const tableData = [
+        {
+            bookingId: "BK001",
+            customer: "John Doe",
+            route: "Kigali - Musanze",
+            amount: 5000,
+            status: "Confirmed"
+        },
+        {
+            bookingId: "BK002",
+            customer: "Jane Smith",
+            route: "Kigali - Huye",
+            amount: 6000,
+            status: "Pending"
+        },
+        {
+            bookingId: "BK003",
+            customer: "Mike Johnson",
+            route: "Kigali - Rubavu",
+            amount: 7000,
+            status: "Confirmed"
+        }
+    ];
+
+    // =========================
+    // Create PDF
+    // =========================
+
+    const doc = new jsPDF();
+
+    // Report Header
+    doc.setFontSize(18);
+    doc.text(reportTitle, 14, 20);
+
+    doc.setFontSize(11);
+    doc.text(`Generated By: ${generatedBy}`, 14, 30);
+    doc.text(`Generated Date: ${generatedDate}`, 14, 37);
+
+    // Summary Section
+    doc.setFontSize(13);
+    doc.text("Summary", 14, 50);
+
+    doc.setFontSize(11);
+    doc.text(`Total Bookings: ${totalBookings}`, 14, 60);
+    doc.text(`Total Revenue: RWF ${totalRevenue}`, 14, 67);
+
+    // Table
+    autoTable(doc, {
+        startY: 80,
+        head: [[
+            "Booking ID",
+            "Customer",
+            "Route",
+            "Amount",
+            "Status"
+        ]],
+        body: tableData.map(item => [
+            item.bookingId,
+            item.customer,
+            item.route,
+            item.amount,
+            item.status
+        ])
+    });
+
+    // Footer
+    const pageHeight = doc.internal.pageSize.height;
+
+    doc.setFontSize(10);
+    doc.text(
+        "Generated by Bus Management System",
+        14,
+        pageHeight - 10
+    );
+
+    doc.save("booking-report.pdf");
+};
+
+
+
+npm install jspdf jspdf-autotable
+npm install tailwindcss @tailwindcss/vite
